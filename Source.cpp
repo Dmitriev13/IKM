@@ -5,23 +5,23 @@
 
 using namespace std;
 
-// Функция для умножения строки числа на целое число
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СѓРјРЅРѕР¶РµРЅРёСЏ СЃС‚СЂРѕРєРё С‡РёСЃР»Р° РЅР° С†РµР»РѕРµ С‡РёСЃР»Рѕ
 string StrMultInt(const string& num, int umn) {
     string result;
-    int ost = 0; // Переменная для хранения остатка
-    for (int i = num.length() - 1; i >= 0; i--)  //num.leght()- 1 последняя цифра строки
+    int ost = 0; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РѕСЃС‚Р°С‚РєР°
+    for (int i = num.length() - 1; i >= 0; i--) //num.leght()- 1 РїРѕСЃР»РµРґРЅСЏСЏ С†РёС„СЂР° СЃС‚СЂРѕРєРё
     { 
-        int digit = num[i] - '0';
-        int a = digit * umn + ost; // Переменная для поразрядного умножения
-        result.push_back((a % 10) + '0'); 
-        ost = a / 10;
+        int digit = num[i] - '0'; // РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃРёРјРІРѕР»Р° РІ С‡РёСЃР»Рѕ
+        int a = digit * umn + ost; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РїРѕСЂР°Р·СЂСЏРґРЅРѕРіРѕ СѓРјРЅРѕР¶РµРЅРёСЏ
+        result.push_back((a % 10) + '0'); // Р¦РёС„СЂР° С‚РµРєСѓС‰РµРіРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°
+        ost = a / 10; // РћСЃС‚Р°С‚РѕРє
     }
     while (ost > 0) 
     {
         result.push_back((ost % 10) + '0');
         ost = ost / 10;
     }
-    // Переворачиваем строку
+    // РџРµСЂРµРІРѕСЂР°С‡РёРІР°РµРј СЃС‚СЂРѕРєСѓ
     string reverseRes;
     for (int i = result.length() - 1; i >= 0; i--) 
     {
@@ -31,7 +31,7 @@ string StrMultInt(const string& num, int umn) {
 }
 
 
-// Функция для сложения двух строк чисел
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЃР»РѕР¶РµРЅРёСЏ РґРІСѓС… СЃС‚СЂРѕРє
 string StrPlusStr(const string& num1, const string& num2) {
     string res;
     int ost = 0;
@@ -62,7 +62,7 @@ string StrPlusStr(const string& num1, const string& num2) {
         res.push_back((sum % 10) + '0');
         ost = sum / 10;
     }
-    // Переворачиваем строку
+    // РџРµСЂРµРІРѕСЂР°С‡РёРІР°РµРј СЃС‚СЂРѕРєСѓ
     string reversedResult;
     for (int i = res.length() - 1; i >= 0; --i) {
         reversedResult.push_back(res[i]);
@@ -71,7 +71,7 @@ string StrPlusStr(const string& num1, const string& num2) {
 }
 
 
-// Функция для возведения строки в степень
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІРѕР·РІРµРґРµРЅРёСЏ СЃС‚СЂРѕРєРё РІ СЃС‚РµРїРµРЅСЊ
 string PowStr(int base, int stepen) {
     string result = "1";
     for (int i = 0; i < stepen; ++i) {
@@ -82,13 +82,13 @@ string PowStr(int base, int stepen) {
 
 
 
-// Функция для проверки и получения корректного ввода от пользователя
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё Рё РїРѕР»СѓС‡РµРЅРёСЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РІРІРѕРґР° РѕС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 int proverka() {
     string input;
     while (true) {
-        cout << "\nВведите целое число n (n >= 10): ";
+        cout << "\nР’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ n (n >= 10): ";
         cin >> input;
-        // Проверка, что введено целое число
+        // РџСЂРѕРІРµСЂРєР°, С‡С‚Рѕ РІРІРµРґРµРЅРѕ С†РµР»РѕРµ С‡РёСЃР»Рѕ
         bool good = true;
         for (char c : input) {
             if (!isdigit(c)) {
@@ -97,11 +97,11 @@ int proverka() {
             }
         }
         if (good) {
-            int value = stoi(input);
+            int value = stoi(input); // stoi РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ str РІ int
             if (value >= 10) {
                 return value;
             }
         }
-        cout << "Неверный ввод! Введите целое число, большее или равное 10." << endl;
+        cout << "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ! Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ, Р±РѕР»СЊС€РµРµ РёР»Рё СЂР°РІРЅРѕРµ 10." << endl;
     }
 }
